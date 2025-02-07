@@ -30,7 +30,7 @@ def python(text="is cool"):
     """a function that print python <text> at the root and
     the default value  of the text is 'is cool'"""
     text = text.replace("_", " ")
-    return f"python {text}"
+    return f"Python {text}"
 
 
 if __name__ == "__main__":
