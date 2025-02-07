@@ -20,7 +20,7 @@ def hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def c(text):
     """a function that print C <text> at the root"""
-    text = text.replace("_"," ")
+    text = text.replace("_", " ")
     return f"C {text}"
 
 
