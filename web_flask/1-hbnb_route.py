@@ -7,12 +7,12 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
-    # "returns Hello HBNB!"
+    """a function that print hello hbnb! at the root"""
     return "Hello HBNB!"
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    # "returns Hello HBNB!"
+    """a function that print hbnb! at the root"""
     return "HBNB!"
 
 if __name__ == "__main__":
