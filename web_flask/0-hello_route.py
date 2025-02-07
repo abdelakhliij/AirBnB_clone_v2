@@ -10,6 +10,6 @@ def hello_hbnb():
     """a function that print hello hbnb at the root"""
     return "Hello HBNB!"
 
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
-
