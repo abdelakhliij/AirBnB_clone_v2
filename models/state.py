@@ -7,9 +7,10 @@ from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 if getenv('HBNB_TYPE_STORAGE') == 'db':
-    from models.city import City 
+    from models.city import City
 
 import models
+
 
 class State(BaseModel, Base):
     """ State class """
@@ -23,7 +24,8 @@ class State(BaseModel, Base):
 
         @property
         def cities(self):
-            """Returns the list of City objects from storage linked to the current State"""
+            """Returns the list of City objects from
+            storage linked to the current State"""
             city_list = []
             for city in models.storage.all("City").values():
                 if city.state_id == self.id:

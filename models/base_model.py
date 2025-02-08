@@ -10,11 +10,16 @@ if getenv('HBNB_TYPE_STORAGE') == 'db':
 else:
     Base = object  # For FileStorage, Base is just an empty object
 
+
 class BaseModel:
     """A base class for all hbnb models"""
-    
+
     if getenv('HBNB_TYPE_STORAGE') == 'db':
-        id = Column(String(60), primary_key=True, nullable=False, default=str(uuid.uuid4()))
+        id = Column(
+             String(60),
+             primary_key=True,
+             nullable=False,
+             default=str(uuid.uuid4()))
         created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
         updated_at = Column(DateTime, nullable=False, default=datetime.utcnow)
 
@@ -35,7 +40,11 @@ class BaseModel:
 
     def __str__(self):
         """Returns a string representation of the instance"""
-        return '[{}] ({}) {}'.format(self.__class__.__name__, self.id, self.__dict__)
+        return '[{}] ({}) {}'.format(
+                self.__class__.__name__,
+                self.id,
+                self.__dict__
+                )
 
     def save(self):
         """Updates updated_at with current time when instance is changed"""
@@ -50,6 +59,5 @@ class BaseModel:
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         if "_sa_instance_state" in dictionary:
-            del dictionary["_sa_instance_state"]  # Remove SQLAlchemy instance state
+            del dictionary["_sa_instance_state"]
         return dictionary
-

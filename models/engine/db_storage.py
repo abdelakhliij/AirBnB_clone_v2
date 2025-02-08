@@ -9,9 +9,10 @@ from models.place import Place
 from models.review import Review
 import os
 
+
 class DBStorage:
     """Interacts with the MySQL database using SQLAlchemy."""
-    
+
     __engine = None
     __session = None
 
@@ -59,7 +60,10 @@ class DBStorage:
     def reload(self):
         """Creates all tables in the database and initializes a new session."""
         Base.metadata.create_all(self.__engine)
-        session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        session_factory = sessionmaker(
+                bind=self.__engine,
+                expire_on_commit=False
+                )
         Session = scoped_session(session_factory)
         self.__session = Session()
 
